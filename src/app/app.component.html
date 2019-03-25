@@ -102,8 +102,15 @@
       <tr>
           <td> {{ salario }} </td>
           <td> currency:'ARS':true  </td>
-          <td> {{ salario |  currency:'ARS':true   }} </td>
+          <td> {{ salario |  currency:'ARS':false   }} </td>
       </tr>
+
+      <!-- currency:'ARS:'symbol   -->
+      <tr>
+        <td> {{ salario }} </td>
+        <td> currency:'ARS':'symbol-narrow'  </td>
+        <td> {{ salario |  currency:'ARS':true  }} </td>'
+    </tr>
 
       <!-- currency:'EUR':true:'4.0-0'   -->
       <tr>
@@ -161,19 +168,43 @@
           <td> {{ nombre2 | capitalizado:false }} </td>
       </tr>
 
+      <!-- Pipe personalizado Contraseña -->
+      <tr>
+        <td> {{ nombre }} </td>
+        <td>
+
+          contrasena:  {{ activar }}
+          <br>
+          <button
+            (click)="activar = !activar"
+            type = "button"
+            class="btn btn-outline-primary"> Activar / desactivar
+          </button>
+
+        </td>
+        <td> {{ contrasenia | contrasena: activar}} </td>
+      </tr>
 
     </tbody>
   </table>
 
+  <!-- Slice -->
   <h4>Slice</h4>
   <ul>
     <li *ngFor="let item of arreglo | slice:5:20"> {{ item }} </li>
   </ul>
 
+  <!-- JSON -->
   <h4>Json</h4>
   <pre>
   {{ heroe | json }}
   </pre>
+
+  <!-- Youtube -->
+  <h4>Youtuba <small>video</small></h4>
+  <hr>
+  <iframe width="560" height="315" [src]="video | domseguro: 'https://www.youtube.com/embed/' " frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 </div>
 

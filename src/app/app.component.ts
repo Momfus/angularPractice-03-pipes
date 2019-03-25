@@ -40,4 +40,9 @@ export class AppComponent {
 
   fecha = new Date;
 
+  video = 'zdYzL6wkr0A';
+
+  contrasenia = 'password123';
+  activar = true;
+
 }
